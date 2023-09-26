@@ -25,7 +25,7 @@ async function getData() {
 		let response = await fetch(apiUrl + `&q=${x}` + `&appid=${apiKey}`);
 		let data = await response.json();
 
-		console.log(data);
+		
 		if (!data.ok) {
 			conditionDay.innerHTML = `${data.weather[0].description}`;
 			showTemp.innerHTML = `Temp:${Math.round(data.main.temp)}&deg;C|Humi:${Math.round(data.main.humidity)}%|wind:${Math.round(data.wind.speed)}km/h`
@@ -81,7 +81,6 @@ async function getData() {
 		}
 		else {
 			showCity.innerHTML = `${data.message}`
-			// console.log(data.cod)
 		};
 
 
@@ -103,8 +102,6 @@ function defultvalues() {
 	async function getdatas() {
 		let x = await fetch(apiUrldef);
 		let y = await x.json();
-
-		console.log(y)
 
 		conditionDay.innerHTML = `${y.weather[0].description}`;
 		showTemp.innerHTML = `Temp:${Math.round(y.main.temp)}&deg;C|Humi:${Math.round(y.main.humidity)}%|wind:${Math.round(y.wind.speed)}km/h`
