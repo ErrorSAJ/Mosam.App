@@ -5,9 +5,6 @@ let showCity = document.querySelector('.city');
 let getCityName = document.querySelector('#search');
 let cityBtn = document.querySelector('.submit');
 
-
-
-
 cityBtn.onclick = () => {
 	if (getCityName.value == "") {
 		alert('Enter your शहर')
@@ -34,41 +31,68 @@ async function getData() {
 			showTemp.innerHTML = `Temp:${Math.round(data.main.temp)}&deg;C|Humi:${Math.round(data.main.humidity)}%|wind:${Math.round(data.wind.speed)}km/h`
 			showCity.innerHTML = `${data.name}`;
 			switch (data.weather[0].main) {
+				case 'Clear':
+					showIcons.src = "wetherimg/Clear.png";
+					break;
 				case 'Clouds':
-					showIcons.src = "cloud.avif"
+					showIcons.src = "wetherimg/Clouds.png"
 					break;
 				case 'Rain':
-					showIcons.src = "rain.avif";
+					showIcons.src = "wetherimg/Rain.png";
 					break;
-				case 'Snow':
-					showIcons.src = "snow.jpg";
+				case 'Thunder':
+					showIcons.src = "wetherimg/Thunderstorm.webp";
 					break;
-				case 'Thunderstorm':
-					showIcons.src = "thunder.avif";
-					break;
-				case 'Clear':
-					showIcons.src = "sunnyday";
+				case 'Haze':
+					showIcons.src = "wetherimg/Haze.png";
 					break;
 				case 'Mist':
-					showIcons.src = "mist.avif";
+					showIcons.src = "wetherimg/Haze.png";
 					break;
+				case 'Smoke':
+					showIcons.src = "wetherimg/Haze.png";
+					break;
+				case 'Dust':
+					showIcons.src = "wetherimg/Haze.png";
+					break;
+				case 'Fog':
+					showIcons.src = "wetherimg/Haze.png";
+					break;
+				case 'Sand':
+					showIcons.src = "wetherimg/Haze.png";
+					break;
+				case 'Dust':
+					showIcons.src = "wetherimg/Haze.png";
+					break;
+				case 'Ash':
+					showIcons.src = "wetherimg/Haze.png";
+					break;
+				case 'Squall':
+					showIcons.src = "wetherimg/Haze.png";
+					break;
+				case 'Tornado':
+					showIcons.src = "wetherimg/Haze.png";
+					break;
+				case 'Snow':
+					showIcons.src = "wetherimg/Snow.webp";
+					break;
+	
 			}
 		}
 		else {
 			showCity.innerHTML = `${data.message}`
 			// console.log(data.cod)
 		};
-		
+
 
 
 	} catch (error) {
 		conditionDay.innerHTML = "404"
 		showTemp.innerHTML = "शहर not found"
 		showCity.innerHTML = '😒'
-		showIcons.src = "error.avif"
+		showIcons.src = "wetherimg/error.webp"
 	}
 }
-
 
 function defultvalues() {
 	let apiUrldef = `https://api.openweathermap.org/data/2.5/weather?&units=metric&appid=ba07a1f652183832059ba0f2d6490608&q=delhi`;
@@ -87,23 +111,50 @@ function defultvalues() {
 		showCity.innerHTML = `${y.name}`;
 
 		switch (y.weather[0].main) {
-			case 'Cloud':
-				showIcons.src = "cloud.avif"
+			case 'Clear':
+				showIcons.src = "wetherimg/Clear.png";
+				break;
+			case 'Clouds':
+				showIcons.src = "wetherimg/Clouds.png"
 				break;
 			case 'Rain':
-				showIcons.src = "rain.avif";
-				break;
-			case 'Snow':
-				showIcons.src = "snow.jpg";
+				showIcons.src = "wetherimg/Rain.png";
 				break;
 			case 'Thunder':
-				showIcons.src = "thunder.avif";
+				showIcons.src = "wetherimg/Thunderstorm.webp";
 				break;
-			case 'Clear':
-				showIcons.src = "sunnyday";
+			case 'Haze':
+				showIcons.src = "wetherimg/Haze.png";
 				break;
 			case 'Mist':
-				showIcons.src = "mist.avif";
+				showIcons.src = "wetherimg/Haze.png";
+				break;
+			case 'Smoke':
+				showIcons.src = "wetherimg/Haze.png";
+				break;
+			case 'Dust':
+				showIcons.src = "wetherimg/Haze.png";
+				break;
+			case 'Fog':
+				showIcons.src = "wetherimg/Haze.png";
+				break;
+			case 'Sand':
+				showIcons.src = "wetherimg/Haze.png";
+				break;
+			case 'Dust':
+				showIcons.src = "wetherimg/Haze.png";
+				break;
+			case 'Ash':
+				showIcons.src = "wetherimg/Haze.png";
+				break;
+			case 'Squall':
+				showIcons.src = "wetherimg/Haze.png";
+				break;
+			case 'Tornado':
+				showIcons.src = "wetherimg/Haze.png";
+				break;
+			case 'Snow':
+				showIcons.src = "wetherimg/Snow.webp";
 				break;
 
 		}
