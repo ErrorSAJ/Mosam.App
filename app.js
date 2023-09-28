@@ -25,7 +25,7 @@ async function getData() {
 		let response = await fetch(apiUrl + `&q=${x}` + `&appid=${apiKey}`);
 		let data = await response.json();
 
-		
+		console.log(data);
 		if (!data.ok) {
 			conditionDay.innerHTML = `${data.weather[0].description}`;
 			showTemp.innerHTML = `Temp:${Math.round(data.main.temp)}&deg;C|Humi:${Math.round(data.main.humidity)}%|wind:${Math.round(data.wind.speed)}km/h`
@@ -76,7 +76,7 @@ async function getData() {
 				case 'Snow':
 					showIcons.src = "wetherimg/Snow.webp";
 					break;
-	
+
 			}
 		}
 		else {
@@ -159,3 +159,59 @@ function defultvalues() {
 }
 defultvalues()
 
+
+
+// -- clock code here ---
+let hr_Niddle = document.querySelector('.hr');
+let min_Niddle = document.querySelector('.min');
+let sec_Niddle = document.querySelector('.sec');
+
+
+function displayclocktime() {
+	let date = new Date();
+	let hour = date.getHours();
+	let min = date.getMinutes();
+	let sec = date.getSeconds();
+	let hr_rotate = 30 * hour + min / 2;
+	let min_rotate = 6 * min;
+	let sec_rotate = 6 * sec;
+
+
+	hr_Niddle.style.transform = `rotate(${hr_rotate}deg)`;
+	min_Niddle.style.transform = `rotate(${min_rotate}deg)`;
+	sec_Niddle.style.transform = `rotate(${sec_rotate}deg)`;
+
+}
+
+setInterval(displayclocktime, 1000);
+
+
+let digit_hr = document.querySelector('#hours');
+let digit_min = document.querySelector('#minutes');
+let digit_sec = document.querySelector('#secound');
+
+function displaydigitclock() {
+	let din = new Date();
+	let hrr = din.getHours();
+	let min = din.getMinutes();
+	let sec = din.getSeconds();
+
+	digit_hr.innerHTML = `${hrr}`;
+	digit_min.innerHTML = `${min}`
+	digit_sec.innerHTML = `${sec}`
+}
+setInterval(displaydigitclock, 1000);
+
+
+let timeperiod = document.querySelector('.dates');
+let day = document.querySelector('#days');
+
+let daytext = new Date();
+let year = daytext.getFullYear();
+let monunth = daytext.getMonth();
+let dates = daytext.getDate();
+
+let dayarr = ['रविवार', 'सोमवार', 'मंगलवार', 'बुधवार', 'बृहस्पतिवार', 'शुक्रवार', 'शनिवार'];
+
+timeperiod.innerHTML = `${dates} / ${monunth} / ${year}`
+day.innerHTML = `${dayarr[daytext.getDay()]}`;

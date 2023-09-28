@@ -66,8 +66,11 @@ body {
 }
 
 .other-repots .deep-effect {
-    height: 99%;
-    width: 99%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 98.5%;
+    width: 98.5%;
     border-radius: 3rem;
     box-shadow: inset 0.2rem 0.2rem 0.5rem var(--greyLight-2),
         inset -0.2rem -0.2rem 0.5rem var(--white);
@@ -172,7 +175,6 @@ body {
 .show-day,
 .show-data,
 .show-city {
-    /* border: 2px solid red; */
     border-radius: 1.5rem;
     box-shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2),
         -0.2rem -0.2rem 0.5rem var(--white);
@@ -190,14 +192,17 @@ body {
         inset -0.2rem -0.2rem 0.5rem var(--white);
     font-family: monospace;
 }
-.show-city .effect{
+
+.show-city .effect {
     overflow: auto;
 }
-.show-day .day{
+
+.show-day .day {
     text-align: center;
     padding: 10px;
 }
-.show-city .effect .city{
+
+.show-city .effect .city {
     margin: 15px;
 }
 
@@ -211,7 +216,7 @@ body {
     background-position: center;
     height: 100%;
     width: 100%;
-    filter: drop-shadow(0px 0px 10px rgb(0, 0, 0));
+    filter: drop-shadow(0px 0px 5px rgb(0, 0, 0));
 }
 
 .repote-contener .show-data {
@@ -236,16 +241,174 @@ body {
     font-size: 1.5rem;
     text-transform: capitalize;
 }
-@media only screen and (max-width: 750px){
-    .container,.deep-eff{
+
+.deep-effect .time-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-direction: column;
+}
+
+.deep-effect .time-content .circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 20rem;
+    width: 20rem;
+    border-radius: 50%;
+    box-shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2),
+        -0.2rem -0.2rem 0.5rem var(--white);
+
+}
+
+.circle .circle-eff {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(20rem - 1rem);
+    width: calc(20rem - 1rem);
+    border-radius: 50%;
+    box-shadow: inset 0.2rem 0.2rem 0.5rem var(--greyLight-2),
+        inset -0.2rem -0.2rem 0.5rem var(--white);
+    position: relative;
+}
+
+.circle-eff .num {
+    position: absolute;
+    font-size: large;
+    transform: rotate(calc(30deg * var(--i)));
+    inset: 12px;
+    text-align: center;
+}
+
+.num i {
+    display: inline-block;
+    transform: rotate(calc(-30deg * var(--i)));
+    color: var(--primary);
+}
+
+.circle-eff::before {
+    content: '';
+    height: 1rem;
+    width: 1rem;
+    border-radius: 50%;
+    background-color: var(--primary-dark);
+}
+
+.circle-eff .niddle {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.niddle i {
+    position: absolute;
+    transform-origin: bottom;
+    border-radius: 10px;
+    background-color: var(--primary-dark);
+}
+
+.hr {
+    height: 4rem;
+    width: 0.3rem;
+}
+
+.min {
+    height: 5.5rem;
+    width: 0.2rem;
+}
+
+.sec {
+    height: 6.5rem;
+    width: 0.1rem;
+}
+
+.circle-eff .dot {
+    height: 1rem;
+    width: 1rem;
+    background-color: var(--primary-dark);
+    border-radius: 50%;
+}
+
+.digt-clock {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 5rem;
+    width: 100%;
+    border-radius: 2rem;
+    box-shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2),
+        -0.2rem -0.2rem 0.5rem var(--white);
+}
+
+.digt-clock .digt-eff {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(5rem - 0.5rem);
+    width: calc(100% - 1%);
+    border-radius: 2rem;
+    box-shadow: inset 0.2rem 0.2rem 0.5rem var(--greyLight-2),
+        inset -0.2rem -0.2rem 0.5rem var(--white);
+}
+
+.digt-eff #hours,
+#minutes,
+#secound {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    font-size: 3rem;
+    color: var(--primary-dark);
+}
+
+.its-conten {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.its-conten .timeper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 5rem;
+    width: 20rem;
+    border-radius: 3rem;
+    box-shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2),
+        -0.2rem -0.2rem 0.5rem var(--white);
+    font-size: 3rem;
+    color: var(--primary-dark);
+}
+
+.timeper .time-eff {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(5rem - 0.5rem);
+    width: calc(20rem - 0.5rem);
+    border-radius: 3rem;
+    box-shadow: inset 0.2rem 0.2rem 0.5rem var(--greyLight-2),
+        inset -0.2rem -0.2rem 0.5rem var(--white);
+}
+
+@media only screen and (max-width: 600px) {
+
+    .container,
+    .deep-eff {
         width: fit-content;
         height: fit-content;
     }
-    .deep-eff{
+
+    .deep-eff {
         padding: 20px;
     }
-    .other-repots{
+
+    .other-repots {
         display: none;
     }
-    
+
 }
