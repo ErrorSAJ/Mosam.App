@@ -300,5 +300,5 @@ let dates = daytext.getDate();
 
 let dayarr = ['रविवार', 'सोमवार', 'मंगलवार', 'बुधवार', 'बृहस्पतिवार', 'शुक्रवार', 'शनिवार'];
 
-timeperiod.innerHTML = `${dates} / ${monunth} / ${year}`
+timeperiod.innerHTML = `${dates} / ${monunth} + 1 / ${year}`
 day.innerHTML = `${dayarr[daytext.getDay()]}`;
