@@ -295,10 +295,10 @@ let day = document.querySelector('#days');
 
 let daytext = new Date();
 let year = daytext.getFullYear();
-let monunth = daytext.getMonth();
+let monunth = daytext.getMonth() + 1;
 let dates = daytext.getDate();
 
 let dayarr = ['रविवार', 'सोमवार', 'मंगलवार', 'बुधवार', 'बृहस्पतिवार', 'शुक्रवार', 'शनिवार'];
 
-timeperiod.innerHTML = `${dates} / ${monunth} + 1 / ${year}`
+timeperiod.innerHTML = `${dates} / ${monunth} / ${year}`
 day.innerHTML = `${dayarr[daytext.getDay()]}`;
